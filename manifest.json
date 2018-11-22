@@ -1,0 +1,25 @@
+{
+
+	"manifest_version": 2,
+	"name": "Filewatcher Demo",
+	"version": "0.1",
+
+	"description": "Demonstration of the gecko filewatcher.",
+	"homepage_url": "https://github.com/gavin4/Capstone_Team-A",
+	
+	"icons": {
+		"48": "icons/psu-48.png",
+		"96": "icons/psu-96.png"
+	},
+
+	"permissions": [
+		"activeTab"
+	],
+
+	"browser_action": {
+		"default_icon": "icons/psu-32.png",
+		"default_title": "Filewatcher",
+		"default_popup": "popup/filewatcher.html"
+	}
+
+}
