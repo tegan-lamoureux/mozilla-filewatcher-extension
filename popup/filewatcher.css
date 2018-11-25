@@ -2,6 +2,10 @@ html, body {
 	  width: 400px;
 }
 
+.result-log {
+	color: #00FF00;
+}
+
 .popup-content {
 }
 
@@ -24,3 +28,4 @@ html, body {
 .reset:hover {
 	  background-color: #EAEA9D;
 }
+
