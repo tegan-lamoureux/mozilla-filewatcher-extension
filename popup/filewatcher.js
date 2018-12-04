@@ -3,6 +3,17 @@
 ChromeUtils.import("resource://gre/modules/osfile.jsm", this);
 ChromeUtils.import("resource://gre/modules/Promise.jsm", this);
 
+function fileSelected() {
+  var file = document.getElementById('fileToUpload').files[0];
+  console.log(`Got path: ${file}`);
+
+    document.getElementById('fileName').innerHTML = 'Name: ' + file.name;
+    document.getElementById('fileSize').innerHTML = 'Size: ' + fileSize;
+    document.getElementById('fileType').innerHTML = 'Type: ' + file.type;
+  }
+}
+
+
 /**
  * Error callback (pass to filewatcher).
  */
@@ -13,7 +24,7 @@ function reportError(error) {
 /**
  * Change callback (pass to filewatcher).
  */
-function reportChange(error) {
+function reportChange(change) {
 	// Do something.
 }
 
