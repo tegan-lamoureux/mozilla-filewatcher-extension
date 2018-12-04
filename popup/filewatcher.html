@@ -1,16 +1,40 @@
 <!DOCTYPE html>
+<!-- 
+  TODO:
+	1. Get filepath from window into JS variable.
+	2. Write callback (js method) to change or "report" change to popup window (css color?)
+	3. Call addpath on watcher passing callback and path from browser.
+-->
 
 <html>
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="filewatcher.css"/>
+	<script src="fileatcher.js"></script>
+	<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' 127.0.0.1">
 </head>
 
 <body>
 	<div id="popup-content">
+	  <form id="form1" enctype="multipart/form-data" method="post" action="Upload.aspx">
+    <div class="row">
+      <label for="fileToUpload">Select a File to Upload</label><br />
+      <input type="file" name="fileToUpload" id="fileToUpload" onchange="fileSelected();"/>
+    </div>
+    <div id="fileName"></div>
+    <div id="fileSize"></div>
+    <div id="fileType"></div>
+    <div class="row">
+      <input type="button" onclick="uploadFile()" value="Upload" />
+    </div>
+    <div id="progressNumber"></div>
+  </form>
+
+<br><br>---- old one ---- <br><br>
+	
 	<form action="/action_page.php">
 	  File/Directory to Watch:<br>
-    <input type="file" name="path">
+    <input type="file" name="path" onclick="pathReceived(path)">
 	<br><br>
 	<!--input type="submit" value="Submit"-->
     </form>
@@ -21,6 +45,5 @@
 	<div id="error-content" class="hidden">
 		<p>Error - Filewatcher not supported.</p>
 	</div>
-	<script src="fileatcher.js"></script>
 </body>
 </html>
